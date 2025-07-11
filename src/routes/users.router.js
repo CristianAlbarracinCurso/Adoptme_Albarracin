@@ -3,6 +3,16 @@ import usersController from '../controllers/users.controller.js';
 
 const router = Router();
 
+/**
+ * @swagger
+ * /api/users:
+ *   get:
+ *     summary: Obtener todos los usuarios
+ *     responses:
+ *       200:
+ *         description: Lista de usuarios
+ */
+
 router.get('/',usersController.getAllUsers);
 
 router.get('/:uid',usersController.getUser);
