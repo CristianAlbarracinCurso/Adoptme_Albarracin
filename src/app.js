@@ -32,7 +32,8 @@ const swaggerOptions = {
     },
     servers: [{ url: "http://localhost:3000" }],
   },
-  apis: ["./src/routes/users.router.js"], // Asegurate de tener el path correcto
+  apis: ["./src/routes/users.router.js", "./src/routes/pets.router.js",,
+    "./src/routes/adoption.router.js","./src/routes/adoption.router.js"], 
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -40,6 +41,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(express.json());
 app.use(cookieParser());
+
 
 app.use("/api/users", usersRouter);
 app.use("/api/pets", petsRouter);

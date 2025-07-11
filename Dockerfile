@@ -1,20 +1,21 @@
-# Imagen base
+# Usar una imagen base oficial de Node
 FROM node:18
 
-# Establece el directorio de trabajo
-WORKDIR /usr/src/app
+# Crear y usar un directorio de trabajo dentro del contenedor
+WORKDIR /app
 
-# Copia los archivos necesarios
+# Copiar los archivos del proyecto al contenedor
 COPY package*.json ./
-
-# Instala dependencias
-RUN npm install
-
-# Copia el resto del proyecto
 COPY . .
 
-# Expone el puerto
+# Instalar dependencias
+RUN npm install
+
+# Exponer el puerto 
 EXPOSE 3000
 
+# Variable de entorno para producción
+ENV NODE_ENV=production
+
 # Comando para correr la app
-CMD ["npm", "start"]
+CMD ["node", "src/app.js"]
